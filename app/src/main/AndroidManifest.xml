@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".postView.PostActivity">
+        <activity android:name=".landing.view.LandingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
@@ -21,7 +21,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".postDetail.PostDetailActivity" />
+        <activity android:name=".post.postDetail.PostDetailActivity" />
+        <activity android:name=".comments.commentDetail.CommentsDetailActivity" />
+        <activity android:name=".post.view.AllPostActivity" />
+        <activity android:name=".comments.view.AllCommentActivity" />
     </application>
 
-</manifest>
+    </manifest>
