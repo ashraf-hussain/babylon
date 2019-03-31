@@ -36,7 +36,7 @@ public class AllCommentsActivity extends BaseActivity implements LandingView {
     LandingPresenter landingPresenter;
     @BindView(R.id.tv_comments)
     TextView tvComments;
-    @BindView(R.id.rv_comments)
+    @BindView(R.id.rv_all_comments)
     RecyclerView rvComments;
     @BindView(R.id.tb_title)
     TextView tbTitle;
