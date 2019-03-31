@@ -50,19 +50,11 @@ public class AllPostActivity extends BaseActivity implements LandingView {
         tbTitle.setText(getString(R.string.post));
         connectionDetector = new ConnectionDetector(this);
 
-        if (connectionDetector.isConnected()) {
-            rvPost.setHasFixedSize(true);
-            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-            rvPost.setLayoutManager(layoutManager);
+        rvPost.setHasFixedSize(true);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        rvPost.setLayoutManager(layoutManager);
 
-            landingPresenter = new LandingImp(this);
-            landingPresenter.loadPostData();
-            llNoInternet.setVisibility(View.GONE);
-        } else {
-            llNoInternet.setVisibility(View.VISIBLE);
-            AppUtils.snackbar(pullToRefresh, getString(R.string.no_internet_connection), this);
-        }
-
+        checkpoint();
 
         pullToRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -79,7 +71,6 @@ public class AllPostActivity extends BaseActivity implements LandingView {
                     AppUtils.snackbar(pullToRefresh, getString(R.string.data_loaded),
                             AllPostActivity.this);
                 }
-
             }
         });
 
@@ -108,15 +99,33 @@ public class AllPostActivity extends BaseActivity implements LandingView {
         AppUtils.snackbar(pullToRefresh, getString(R.string.sth_wrong), this);
     }
 
-    @OnClick(R.id.toolbar)
-    public void onViewClicked() {
-        onBackPressed();
+    @Override
+    public void checkpoint() {
+        if (connectionDetector.isConnected()) {
+            landingPresenter = new LandingImp(this);
+            landingPresenter.loadPostData();
+            llNoInternet.setVisibility(View.GONE);
+        } else {
+            llNoInternet.setVisibility(View.VISIBLE);
+            AppUtils.snackbar(pullToRefresh, getString(R.string.no_internet_connection), this);
+        }
     }
-
 
     @Override
     protected void onResume() {
         super.onResume();
-        landingPresenter.loadPostData();
+        checkpoint();
+    }
+
+    @OnClick({R.id.toolbar, R.id.btn_retry})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.toolbar:
+                onBackPressed();
+                break;
+            case R.id.btn_retry:
+                checkpoint();
+                break;
+        }
     }
 }

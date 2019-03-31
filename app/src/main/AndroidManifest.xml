@@ -24,7 +24,7 @@
         <activity android:name=".post.postDetail.PostDetailActivity" />
         <activity android:name=".comments.commentDetail.CommentsDetailActivity" />
         <activity android:name=".post.view.AllPostActivity" />
-        <activity android:name=".comments.view.AllCommentActivity" />
+        <activity android:name=".comments.view.AllCommentsActivity" />
     </application>
 
     </manifest>
