@@ -12,4 +12,5 @@
     <string name="view_all">view all</string>
     <string name="all_post">All Posts</string>
     <string name="all_comments">All Comments</string>
+    <string name="retry">Retry</string>
 </resources>

@@ -10,4 +10,5 @@ public interface LandingView {
     void showPostData(List<PostModel> postModelList);
     void onSuccess();
     void onError();
+    void  checkpoint();
 }
