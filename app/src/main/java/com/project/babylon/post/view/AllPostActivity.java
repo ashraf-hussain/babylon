@@ -27,7 +27,7 @@ public class AllPostActivity extends BaseActivity implements LandingView {
 
     private final String TAG = AllPostActivity.class.getName();
 
-    @BindView(R.id.rv_post)
+    @BindView(R.id.rv_all_post)
     RecyclerView rvPost;
     @BindView(R.id.tb_title)
     TextView tbTitle;

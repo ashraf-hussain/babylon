@@ -30,7 +30,7 @@
             tools:text="200 Comments" />
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/rv_comments"
+            android:id="@+id/rv_all_comments"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
